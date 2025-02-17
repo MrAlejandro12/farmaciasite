@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmacia Fami-Med</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Farmacia Fami-Med</div>
+        
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Buscar productos..." />
+            <div id="searchResults"></div>
+        </div>
+        
+        <div class="nav-buttons">
+            <button id="clientBtn" class="button">Cliente</button>
+            <button id="adminBtn" class="button">Administrador</button>
+        </div>
+    </header>     
+    <nav class="category-nav">
+        <button class="category-btn" data-category="salud">Salud y Medicamento</button>
+        <button class="category-btn" data-category="belleza">Belleza</button>
+        <button class="category-btn" data-category="mama">Mamá y Bebé</button>
+    </nav>
+    
+    <section class="banner">
+        <h1>Bienvenido a nuestra farmacia</h1>
+        <p>Salud, Economia y Bienestar</p>
+    </section>
+    <div class="carousel">
+        <img src="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.jpg" alt="Imagen 1" class="active">
+        <img src="maxresdefault.jpg" alt="Imagen 2">
+        <img src="publiblili.jpg" alt="Imagen 3">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+    
+    <main>
+        <section id="productSection">
+            <h2>Lista de Productos</h2>
+            <div id="productList" class="product-list"></div>
+        </section>
+
+        <section id="adminSection" style="display: none;">
+            <h2>Agregar Producto</h2>
+            <form id="productForm">
+                <input type="text" id="productName" placeholder="Nombre del producto" required>
+                <input type="text" id="productDesc" placeholder="Descripción" required>
+                <select id="productCategory" required>
+                    <option value="Salud y Medicamento">Salud y Medicamento</option>
+                    <option value="Belleza">Belleza</option>
+                    <option value="Mamá y Bebé">Mamá y Bebé</option>
+                </select>
+                <input type="number" id="productPrice" placeholder="Precio" required>
+                <input type="file" id="productImage" accept="image/*" required>
+                <button type="submit">Añadir Producto</button>
+            </form>
+            
+            <div id="productList"></div>
+            
+            <button id="clearStorage" class="button back-button">Limpiar Productos</button>
+        </section>
+    </main>
+
+    <section class="about">
+        <h2>Sobre Nosotros</h2>
+        <p>Somos una farmacia comprometida con la salud y el bienestar de nuestros clientes.</p>
+    </section>
+    
+    <section class="location">
+        <h2>Ubicación</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d949.7237350921063!2d-63.109412293409584!3d-17.796634019226108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e90012e121cb%3A0x499f2f969330c49f!2sFARMACIA%20FAMI-MED!5e0!3m2!1ses-419!2sbo!4v1738760744293!5m2!1ses-419!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p>Estamos ubicados en el 8vo anillo al lado de las jibas, ruta de la linea N°13</p>
+    </section>
+    
+    <section class="thanks">
+        <h2>Gracias por visitarnos</h2>
+        <p>Esperamos verte pronto en nuestra tienda.</p>
+    </section>
+    <div id="passwordModal">
+        <h3>Ingrese la contraseña</h3>
+        <input type="password" id="adminPassword" placeholder="Contraseña">
+        <button id="submitPassword">Aceptar</button>
+        <button id="closeModal">Cancelar</button>
+    </div>
+    <a href="https://wa.me/77857748" class="whatsapp-button" target="_blank">
+        <img src="eaeaea.jpg" alt="WhatsApp">
+    </a>
+    
+    
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
