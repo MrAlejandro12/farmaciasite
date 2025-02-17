@@ -1,14 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const pool = require('./database'); // Ahora importa PostgreSQL
-
+const pool = require('./database');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; // Usar el puerto de Render
 
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(express.static('public'));
 
-// Agregar un producto
 app.post('/add-product', async (req, res) => {
     const { name, description, image } = req.body;
     try {
@@ -22,7 +20,6 @@ app.post('/add-product', async (req, res) => {
     }
 });
 
-// Obtener productos
 app.get('/products', async (req, res) => {
     try {
         const result = await pool.query("SELECT * FROM products");
@@ -32,7 +29,6 @@ app.get('/products', async (req, res) => {
     }
 });
 
-// Eliminar producto
 app.delete('/delete-product/:id', async (req, res) => {
     const id = req.params.id;
     try {
@@ -44,5 +40,5 @@ app.delete('/delete-product/:id', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
