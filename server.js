@@ -1,8 +1,17 @@
 const express = require('express');
+const cors = require('cors'); // 🔹 Importar cors
 const bodyParser = require('body-parser');
 const pool = require('./database');
+
 const app = express();
-const PORT = process.env.PORT || 3000; // Usar el puerto de Render
+const PORT = process.env.PORT || 10000; // Usar el puerto de Render
+
+// 🔹 Habilitar CORS
+app.use(cors({
+    origin: "*", // Permite todas las conexiones (ajustable si es necesario)
+    methods: ["GET", "POST", "DELETE"], // Métodos permitidos
+    allowedHeaders: ["Content-Type"]
+}));
 
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(express.static('public'));
@@ -42,5 +51,3 @@ app.delete('/delete-product/:id', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
-const cors = require("cors");
-app.use(cors());
