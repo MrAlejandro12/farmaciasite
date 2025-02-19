@@ -16,24 +16,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchResults = document.getElementById("searchResults");
 
     let isAdmin = false;
-    const API_URL = "https://farmaciasite.onrender.com/products"; // URL de la API
+    const API_URL = "https://farmaciasite.onrender.com"; // URL base de la API
 
     // Ocultar modal al inicio
     passwordModal.style.display = "none";
 
-    function fetchProducts() {
-        fetch("https://farmaciasite.onrender.com/products")
-            .then(response => response.json())
-            .then(data => {
-                console.log("📌 Datos recibidos de la API:", data);
-                if (!Array.isArray(data)) {
-                    throw new Error("❌ Los datos recibidos no son un array");
-                }
-                renderProducts(data);
-            })
-            .catch(error => console.error("❌ Error obteniendo productos:", error));
+    // 🔹 Obtener productos desde la API
+    async function fetchProducts() {
+        try {
+            const response = await fetch(`${API_URL}/products`);
+            const data = await response.json();
+            console.log("📌 Datos recibidos de la API:", data);
+            if (!Array.isArray(data)) throw new Error("❌ Los datos recibidos no son un array");
+            renderProducts(data);
+            return data; // Devolver productos para filtrado
+        } catch (error) {
+            console.error("❌ Error obteniendo productos:", error);
+        }
     }
-    
 
     // 🔹 Renderizar productos según categoría
     function renderProducts(products, category = null) {
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
             };
     
             try {
-                const response = await fetch("https://farmaciasite.onrender.com/products", {
+                const response = await fetch(`${API_URL}/add-product`, { // ✅ URL corregida
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -114,11 +114,12 @@ document.addEventListener("DOMContentLoaded", function () {
     
         reader.readAsDataURL(imageFile);
     }
-    
+
     // 🔹 Eliminar producto
     async function removeProduct(id) {
         try {
-            await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+            const response = await fetch(`${API_URL}/delete-product/${id}`, { method: "DELETE" }); // ✅ URL corregida
+            if (!response.ok) throw new Error("Error al eliminar producto");
             alert("Producto eliminado.");
         } catch (error) {
             console.error("Error eliminando producto:", error);
@@ -158,9 +159,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 🔹 Filtrar por categoría
     categoryButtons.forEach(button => {
-        button.addEventListener("click", function () {
+        button.addEventListener("click", async function () {
             const category = this.getAttribute("data-category");
-            fetchProducts().then(products => renderProducts(products, category));
+            const products = await fetchProducts();
+            renderProducts(products, category);
         });
     });
 
@@ -174,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        const response = await fetch(API_URL);
+        const response = await fetch(`${API_URL}/products`);
         const products = await response.json();
         const filteredProducts = products.filter(product =>
             product.name.toLowerCase().includes(query)
