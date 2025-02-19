@@ -23,20 +23,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function fetchProducts() {
         fetch("https://farmaciasite.onrender.com/products")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
+            .then(response => response.json())
             .then(data => {
-                console.log("Productos recibidos:", data);
+                console.log("📌 Datos recibidos de la API:", data);
                 if (!Array.isArray(data)) {
-                    throw new Error("Los datos recibidos no son un array");
+                    throw new Error("❌ Los datos recibidos no son un array");
                 }
                 renderProducts(data);
             })
-            .catch(error => console.error("Error obteniendo productos:", error));
+            .catch(error => console.error("❌ Error obteniendo productos:", error));
     }
     
 
