@@ -24,13 +24,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // 🔹 Obtener productos desde la API
     async function fetchProducts() {
         try {
-            const response = await fetch(API_URL);
-            const products = await response.json();
-            renderProducts(products);
+            const response = await fetch("https://farmaciasite.onrender.com/products");
+            if (!response.ok) {
+                throw new Error("No se pudieron obtener los productos");
+            }
+            products = await response.json();
+            renderProducts();
         } catch (error) {
             console.error("Error obteniendo productos:", error);
         }
     }
+    
 
     // 🔹 Renderizar productos según categoría
     function renderProducts(products, category = null) {
@@ -65,18 +69,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // 🔹 Agregar producto (Enviarlo al servidor)
     async function addProduct(event) {
         event.preventDefault();
-
+    
         const name = document.getElementById("productName").value;
         const description = document.getElementById("productDesc").value;
         const category = document.getElementById("productCategory").value;
         const price = document.getElementById("productPrice").value;
         const imageFile = document.getElementById("productImage").files[0];
-
+    
         if (!name || !description || !category || !price || !imageFile) {
             alert("Por favor, completa todos los campos.");
             return;
         }
-
+    
+        // Convertir la imagen a base64
         const reader = new FileReader();
         reader.onload = async function (e) {
             const productData = {
@@ -84,31 +89,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 description,
                 category,
                 price,
-                image: e.target.result,
+                image: e.target.result // Base64 de la imagen
             };
-
+    
             try {
-                const response = await fetch(API_URL, {
+                const response = await fetch("https://farmaciasite.onrender.com/products", {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(productData),
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(productData)
                 });
-
-                if (response.ok) {
-                    alert("Producto añadido correctamente.");
-                    fetchProducts(); // Recargar lista de productos
-                    productForm.reset();
-                } else {
-                    alert("Error al agregar producto.");
+    
+                if (!response.ok) {
+                    throw new Error("Error al agregar el producto");
                 }
+    
+                alert("Producto añadido exitosamente");
+                fetchProducts(); // Recargar la lista de productos desde la base de datos
+                productForm.reset();
             } catch (error) {
-                console.error("Error enviando producto:", error);
+                console.error("Error al enviar producto:", error);
             }
         };
-
+    
         reader.readAsDataURL(imageFile);
     }
-
+    
     // 🔹 Eliminar producto
     async function removeProduct(id) {
         try {
