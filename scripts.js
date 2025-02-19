@@ -21,18 +21,22 @@ document.addEventListener("DOMContentLoaded", function () {
     // Ocultar modal al inicio
     passwordModal.style.display = "none";
 
-    // 🔹 Obtener productos desde la API
-    async function fetchProducts() {
-        try {
-            const response = await fetch("https://farmaciasite.onrender.com/products");
-            if (!response.ok) {
-                throw new Error("No se pudieron obtener los productos");
-            }
-            products = await response.json();
-            renderProducts();
-        } catch (error) {
-            console.error("Error obteniendo productos:", error);
-        }
+    function fetchProducts() {
+        fetch("https://farmaciasite.onrender.com/products")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Productos recibidos:", data);
+                if (!Array.isArray(data)) {
+                    throw new Error("Los datos recibidos no son un array");
+                }
+                renderProducts(data);
+            })
+            .catch(error => console.error("Error obteniendo productos:", error));
     }
     
 
