@@ -303,6 +303,20 @@ button:hover {
 .about h2, .location h2, .thanks h2 {
     color: #004aad;
 }
+.location-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.location iframe {
+    width: 90%;
+    height: 300px;
+    max-width: 600px;
+    border: none;
+}
+
 /* 📌 Ajustar el header en móviles */
 @media (max-width: 768px) {
     .header {

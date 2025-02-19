@@ -44,12 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 const productItem = document.createElement("div");
                 productItem.classList.add("product-item");
                 productItem.innerHTML = `
-                    <h3>${product.name}</h3>
-                    <p>${product.description}</p>
-                    <img src="${product.image}" alt="${product.name}" />
-                    <p><strong>Categoría:</strong> ${product.category}</p>
-                    <p><strong>Precio:</strong> Bs ${product.price || "0.00"}</p>
-                    ${isAdmin ? `<button class="button delete-button" data-id="${product.id}">Eliminar</button>` : ""}
+                     <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <img src="${product.image}" alt="${product.name}" />
+                <p><strong>Categoría:</strong> ${product.category || "Sin categoría"}</p>
+                <p><strong>Precio:</strong> Bs ${product.price ? parseFloat(product.price).toFixed(2) : "0.00"}</p>
+                ${isAdmin ? `<button class="button delete-button" data-id="${product.id}">Eliminar</button>` : ""}
                 `;
                 productList.appendChild(productItem);
             });
@@ -213,3 +213,24 @@ document.addEventListener("DOMContentLoaded", function () {
     productForm.addEventListener("submit", addProduct);
     fetchProducts(); // Cargar productos al inicio
 });
+// Carrusel de imágenes automático
+let currentIndex = 0;
+const slides = document.querySelectorAll(".carousel img");
+const totalSlides = slides.length;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.style.display = i === index ? "block" : "none";
+    });
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    showSlide(currentIndex);
+}
+
+// Cambia la imagen cada 3 segundos
+setInterval(nextSlide, 3000);
+
+// Muestra la primera imagen al inicio
+showSlide(currentIndex);
