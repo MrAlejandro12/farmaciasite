@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Botones y secciones
+    // Elementos principales
     const clientBtn = document.getElementById("clientBtn");
     const adminBtn = document.getElementById("adminBtn");
     const productSection = document.getElementById("productSection");
@@ -10,11 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordModal = document.getElementById("passwordModal");
     const submitPassword = document.getElementById("submitPassword");
     const closeModal = document.getElementById("closeModal");
-    
-    // Elementos del buscador
     const searchBar = document.getElementById("searchBar");
     const searchResults = document.getElementById("searchResults");
 
+    // Variables de estado
     let isAdmin = false;
     const API_URL = "https://farmaciasite.onrender.com"; // URL base de la API
 
@@ -29,13 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("📌 Datos recibidos de la API:", data);
             if (!Array.isArray(data)) throw new Error("❌ Los datos recibidos no son un array");
             renderProducts(data);
-            return data; // Devolver productos para filtrado
+            return data;
         } catch (error) {
             console.error("❌ Error obteniendo productos:", error);
         }
     }
 
-    // 🔹 Renderizar productos según categoría
+    // 🔹 Renderizar productos
     function renderProducts(products, category = null) {
         productList.innerHTML = "";
         products
@@ -44,12 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 const productItem = document.createElement("div");
                 productItem.classList.add("product-item");
                 productItem.innerHTML = `
-                     <h3>${product.name}</h3>
-                <p>${product.description}</p>
-                <img src="${product.image}" alt="${product.name}" />
-                <p><strong>Categoría:</strong> ${product.category || "Sin categoría"}</p>
-                <p><strong>Precio:</strong> Bs ${product.price ? parseFloat(product.price).toFixed(2) : "0.00"}</p>
-                ${isAdmin ? `<button class="button delete-button" data-id="${product.id}">Eliminar</button>` : ""}
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <img src="${product.image}" alt="${product.name}" />
+                    <p><strong>Categoría:</strong> ${product.category || "Sin categoría"}</p>
+                    <p><strong>Precio:</strong> Bs ${product.price ? parseFloat(product.price).toFixed(2) : "0.00"}</p>
+                    ${isAdmin ? `<button class="button delete-button" data-id="${product.id}">Eliminar</button>` : ""}
                 `;
                 productList.appendChild(productItem);
             });
@@ -59,28 +58,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 button.addEventListener("click", async function () {
                     const id = this.getAttribute("data-id");
                     await removeProduct(id);
-                    fetchProducts(); // Recargar productos después de eliminar
+                    fetchProducts();
                 });
             });
         }
     }
 
-    // 🔹 Agregar producto (Enviarlo al servidor)
+    // 🔹 Agregar producto
     async function addProduct(event) {
         event.preventDefault();
-    
+
         const name = document.getElementById("productName").value;
         const description = document.getElementById("productDesc").value;
         const category = document.getElementById("productCategory").value;
         const price = document.getElementById("productPrice").value;
         const imageFile = document.getElementById("productImage").files[0];
-    
+
         if (!name || !description || !category || !price || !imageFile) {
             alert("Por favor, completa todos los campos.");
             return;
         }
-    
-        // Convertir la imagen a base64
+
         const reader = new FileReader();
         reader.onload = async function (e) {
             const productData = {
@@ -88,37 +86,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 description,
                 category,
                 price,
-                image: e.target.result // Base64 de la imagen
+                image: e.target.result
             };
-    
+
             try {
-                const response = await fetch(`${API_URL}/add-product`, { // ✅ URL corregida
+                const response = await fetch(`${API_URL}/add-product`, {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
+                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(productData)
                 });
-    
-                if (!response.ok) {
-                    throw new Error("Error al agregar el producto");
-                }
-    
+
+                if (!response.ok) throw new Error("Error al agregar el producto");
+
                 alert("Producto añadido exitosamente");
-                fetchProducts(); // Recargar la lista de productos desde la base de datos
+                fetchProducts();
                 productForm.reset();
             } catch (error) {
                 console.error("Error al enviar producto:", error);
             }
         };
-    
+
         reader.readAsDataURL(imageFile);
     }
 
     // 🔹 Eliminar producto
     async function removeProduct(id) {
         try {
-            const response = await fetch(`${API_URL}/delete-product/${id}`, { method: "DELETE" }); // ✅ URL corregida
+            const response = await fetch(`${API_URL}/delete-product/${id}`, { method: "DELETE" });
             if (!response.ok) throw new Error("Error al eliminar producto");
             alert("Producto eliminado.");
         } catch (error) {
@@ -144,10 +138,10 @@ document.addEventListener("DOMContentLoaded", function () {
         passwordModal.style.display = "none";
     });
 
-    // 🔹 Validar contraseña y activar modo admin
+    // 🔹 Validar contraseña
     submitPassword.addEventListener("click", function () {
         const enteredPassword = document.getElementById("adminPassword").value;
-        if (enteredPassword === "farmaciafamimedfamiliamedica") { 
+        if (enteredPassword === "farmaciafamimedfamiliamedica") {
             isAdmin = true;
             passwordModal.style.display = "none";
             adminSection.style.display = "block";
@@ -197,12 +191,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     </div>
                 `;
-
-                resultItem.addEventListener("click", function () {
-                    searchBar.value = product.name;
-                    searchResults.style.display = "none";
-                });
-
                 searchResults.appendChild(resultItem);
             });
 
@@ -211,9 +199,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     productForm.addEventListener("submit", addProduct);
-    fetchProducts(); // Cargar productos al inicio
+    fetchProducts();
 });
-// Carrusel de imágenes automático
+
+// 🔹 Carrusel de imágenes automático y manual
 let currentIndex = 0;
 const slides = document.querySelectorAll(".carousel img");
 const totalSlides = slides.length;
@@ -229,8 +218,5 @@ function nextSlide() {
     showSlide(currentIndex);
 }
 
-// Cambia la imagen cada 3 segundos
 setInterval(nextSlide, 3000);
-
-// Muestra la primera imagen al inicio
 showSlide(currentIndex);
