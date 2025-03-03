@@ -3,98 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmacia Fami-Med</title>
+    <meta name="description" content="Bienes Raices MolinaSRL">
+    <meta name="keywords" content="urbano, desarrollo, proyectos, sostenibilidad">
+    <meta name="author" content="Tu Empresa">
+    <title>MolinaSRL</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="logomolllina.PNG" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
+    <script src="https://www.marzipano.net/demos/common/jquery.min.js"></script>
+    <script src="https://www.marzipano.net/demos/common/marzipano.js"></script>
+  <!-- Meta Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '935891095013910');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=935891095013910&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body>
-    <header class="header">
-        <div class="logo">Farmacia Fami-Med</div>
-        
-        <div class="search-container">
-            <input type="text" id="searchBar" placeholder="Buscar productos..." />
-            <div id="searchResults"></div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logomolllina.PNG" alt="">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#projects">Proyectos</a></li>
+                </ul>
+            </nav>
         </div>
-        
-        <div class="nav-buttons">
-            <button id="clientBtn" class="button">Cliente</button>
-            <button id="adminBtn" class="button">Administrador</button>
+    </header>
+
+    
+    
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Innovando el Desarrollo Urbano</h1>
+            <p>Soluciones sostenibles para un futuro mejor</p>
+            <a href="https://wa.me/59169270000?text=Hola%20quiero%20cotizar%20un%20lote" class="btn" target="_blank">Cotizar tu lote</a>
+
         </div>
-    </header>     
-    <nav class="category-nav">
-        <button class="category-btn" data-category="salud">Salud y Medicamento</button>
-        <button class="category-btn" data-category="belleza">Belleza</button>
-        <button class="category-btn" data-category="mama">Mamá y Bebé</button>
-    </nav>
-    
-    <section class="banner">
-        <h1>Bienvenido a nuestra farmacia</h1>
-        <p>Salud, Economia y Bienestar</p>
     </section>
-    <div class="carousel">
-        <img src="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.jpg" alt="Imagen 1" class="active">
-        <img src="maxresdefault.jpg" alt="Imagen 2">
-        <img src="publiblili.jpg" alt="Imagen 3">
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
+    <section id="audio-section">
+        <h2>Tenemos un mensaje para ti!</h2>
+        <audio controls>
+            <source src="hahaah.mpeg" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </section>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>LOTES PARA TI Y PARA TU FAMILIA</h2>
+            <p>En Molina SRL, te ayudamos a construir el futuro que sueñas con lotes estratégicamente ubicados, ideales para inversión o para el hogar que siempre quisiste. Innovación, confianza y compromiso contigo.</p>
+        </div>
+    </section>
+     <!-- Logo Section -->
+     <section id="logosi">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/Bienesraicesmolinasrl?locale=es_LA" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@Molinasr" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <div class="social-icons">
+                    <a href="https://wa.me/59169270000?text=Hola%20quiero%20cotizar%20un%20lote"
+                       target="_blank" 
+                       aria-label="WhatsApp">
+                       <i class="fab fa-whatsapp"></i>
+                    </a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=foronda.pablo@gmail.com&su=Consulta&body=Hola, estoy interesado en más información." target="_blank" aria-label="Gmail"><i class="fab fa-google"></i></a>
+        </div>
+        <a href="https://www.instagram.com/srlmolina?utm_source=qr&igsh=MTIzNGtxcDBncWxsdQ==" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+         </a>
+    </section>
+    
+<!-- Sección Nuestra Página en Canvas -->
+<section id="canvas-page">
+    <div class="container">
+        <h2>Nuestra Página en Canvas</h2>
+        <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAGKwZ-ARNg/JVZo_mnFooaiRalCGb_cJw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGKwZ-ARNg&#x2F;JVZo_mnFooaiRalCGb_cJw&#x2F;view?utm_content=DAGKwZ-ARNg&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">SAN MIGUEL 3 y 4</a> de Bienes Raices MolinaSRL
     </div>
-    
-    <main>
-        <section id="productSection">
-            <h2>Lista de Productos</h2>
-            <div id="productList" class="product-list"></div>
-        </section>
+</section>
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service">
+                    <img src="tftaaa.PNG" alt="Desarrollo de Proyectos">
+                    <h3>Lote de 250m2</h3>
+                    <p>- Lote en Calle Crédito
+                        - Superficie: 250 m2
+                        - Precio especial: Bs 78.412,50
+                        - Inicial: Bs 7.000
+                        - Cuota mensual: Bs 1.190
+                        - ¡Promo! Paga 3 cuotas, 1 de regalo
+                        - Crédito directo: 5 años sin intereses
+                        - Precio al CONTADO: Bs 49.000</p>
+                </div>
+                <div class="service">
+                    <img src="cehnsoman.PNG" alt="Consultoría">
+                    <h3> Lote de 292 m2</h3>
+                    <p>- Lote en Calle Crédito
+                        - Superficie: 292 m2
+                        - Precio especial: Bs 91.419,20
+                        - Inicial: Bs 8.200
+                        - Cuota mensual: Bs 1.390
+                        - ¡Promo! Paga 3 cuotas, 1 de regalo
+                        - Crédito directo: 5 años sin intereses
+                        - Precio al CONTADO: Bs 57.000</p>
+                </div>
+                <div class="service">
+                    <img src="infininikko.PNG" alt="Infraestructura Tecnológica">
+                    <h3>¡San Miguel 3 y 4: Donde Tus Sueños Toman Forma! 🌟</h3>
+                    <p>¿Listo para invertir en tu futuro y construir el hogar que siempre soñaste? 🏡 Descubre San Miguel 3 y 4, una oportunidad única para crecer en familia con todo lo que necesitas al alcance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FBienesraicesmolinasrl%2Fposts%2Fpfbid0jGqBNRZAp5W1NV2fABc6V8QFb9rpHaaQELmc58nUr2Ai6iojnczUVMhPeg9YZHBRl&show_text=true&width=500" width="500" height="509" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 
-        <section id="adminSection" style="display: none;">
-            <h2>Agregar Producto</h2>
-            <form id="productForm">
-                <input type="text" id="productName" placeholder="Nombre del producto" required>
-                <input type="text" id="productDesc" placeholder="Descripción" required>
-                <select id="productCategory" required>
-                    <option value="Salud y Medicamento">Salud y Medicamento</option>
-                    <option value="Belleza">Belleza</option>
-                    <option value="Mamá y Bebé">Mamá y Bebé</option>
-                </select>
-                <input type="number" id="productPrice" placeholder="Precio" required>
-                <input type="file" id="productImage" accept="image/*" required>
-                <button type="submit">Añadir Producto</button>
-            </form>
-            
-            <div id="productList"></div>
-            
-            <button id="clearStorage" class="button back-button">Limpiar Productos</button>
-        </section>
-    </main>
-
-    <section class="about">
-        <h2>Sobre Nosotros</h2>
-        <p>Somos una farmacia comprometida con la salud y el bienestar de nuestros clientes.</p>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Proyectos Destacados</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <img src="kkkoool.PNG" alt="Proyecto 1">
+                    <h3>¡Descubre San Miguel 3, el hogar de tus sueños con confianza garantizada! 🏡✨
+                        <p><b>Proyecto San Miguel 3</b></p>
+                        🌟 Ubicación Perfecta:
+                                                                            zona este 
+                        10 min del Súper Fidalga virgen de cotoca
+                        3 min del Colegio Nacional Potosí ( zona patuju)
+                        3 min del Mercado Patujú
+                        3 min de la Posta Médica
+                        🚀 Conexión Total:
+                        Transporte público fácil
+                        Micro y taxis disponibles</h3>
+                </div>
+                
+        </div>
+        <h2>Proyectos Exitosos</h2>
+        <div class="projects-grid">
+            <div class="project">
+                <img src="SAN MIGUEL 3 y 4.png" alt="Reyna del Oriente">
+                    <p><b>Nuestros proyectos que son exitos</b></p>
+                </h3>
+            </div>
+        </div>
     </section>
-    
-    <section class="location">
-        <h2>Ubicación</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d949.7237350921063!2d-63.109412293409584!3d-17.796634019226108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e90012e121cb%3A0x499f2f969330c49f!2sFARMACIA%20FAMI-MED!5e0!3m2!1ses-419!2sbo!4v1738760744293!5m2!1ses-419!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <p>Estamos ubicados en el 8vo anillo al lado de las jibas, ruta de la linea N°13</p>
+    <section id="logros">
+        <div class="container">
+            <div class="logros-content">
+                <div class="logros-texto">
+                    <h2>15 mil FAMILIAS FELICES</h2>
+                    <p>
+                        Con más de 30 años de experiencia, Molina SRL ha desarrollado más de 25 urbanizaciones en todo el país, abarcando tanto proyectos residenciales como comerciales. Nos enorgullece trabajar contigo para construir el futuro que deseas. Tu satisfacción y confianza son nuestra mayor recompensa.
+                    </p>
+                </div>
+                <div class="logros-imagen">
+                    <img src="seoeeoeoeoe.PNG" alt="Mapa de Perú con logros">
+                </div>
+            </div>
+        </div>
     </section>
-    
-    <section class="thanks">
-        <h2>Gracias por visitarnos</h2>
-        <p>Esperamos verte pronto en nuestra tienda.</p>
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FBienesraicesmolinasrl%2Fposts%2Fpfbid02RCJd2d5uwbidycpHMXCkzXb324Xi4EL81wA12gFLVAu1bFdc6Y26Tfvo9Fc6E1tul&show_text=true&width=500" width="500" height="451" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmolina.srl%2Fposts%2Fpfbid0LEZ4mzCrrvnpDwuoos7Di4tu323HGvG3Mef48zEYNGT5KZWtHWwpxcxDUqWXNumwl&show_text=true&width=500" width="500" height="250" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+    <section class="clientes-satisfechos">
+        <h2>Nuestros Clientes Satisfechos</h2>
+        <div class="cliente">
+            <img src="SAN MIGUEL 3 y 4 (1).png" alt="Cliente 1">
+        </div>
+        <div class="cliente">
+            <img src="SAN MIGUEL 3 y 4 w.png" alt="Cliente 2">
+            <p>Excelente atención y resultados!</p>
+        </div>
+        <div class="cliente">
+            <img src="asi.png" alt="Cliente 3">
+            <p>Recomendado al 100%!</p>
+        </div>
     </section>
-    <div id="passwordModal">
-        <h3>Ingrese la contraseña</h3>
-        <input type="password" id="adminPassword" placeholder="Contraseña">
-        <button id="submitPassword">Aceptar</button>
-        <button id="closeModal">Cancelar</button>
+</body>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2770.7525818303075!2d-63.049429176380606!3d-17.78706444973979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1efba70b465b3%3A0xdef9423a0e6bb3e3!2sUrbanizacion%20San%20Miguel
+!5e1!3m2!1ses-419!2sbo!4v1740673936311!5m2!1ses-419!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- Galería de Imágenes y Videos -->
+<section id="media-galeria">
+    <div class="container">
+        <h2>Galería de Imágenes y Videos</h2>
+        <div class="media-grid">
+            <img src="Diseño sin título.jpg" alt="Descripción de la imagen 1">
+            <video controls>
+                <source src="Diseño sin título.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            <video controls>
+                <source src="Diseño sin título (1).mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+        </div>
     </div>
-    <a href="https://wa.me/77857748" class="whatsapp-button" target="_blank">
-        <img src="eaeaea.jpg" alt="WhatsApp">
-    </a>
-    
-    
-    
-    <script src="scripts.js"></script>
+</section>
+<iframe title="MolinaMapa" width="1024" height="576" src="https://ion.cesium.com/stories/viewer/?id=c9c619f1-bbd6-4605-a8b9-250c2c8ec7b7" frameborder="0" allow="fullscreen" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+<section id="contacto">
+    <h2>Contáctanos</h2>
+    <form id="contactForm">
+        <div class="form-group">
+            <label for="nombre">Nombre y Apellido:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad" required>
+        </div>
+        <div class="form-group">
+            <label for="lote">Correo:</label>
+            <input type="text" id="lote" name="lote" required>
+        </div>
+        <div class="form-group">
+            <label for="celular">Número de Celular:</label>
+            <input type="tel" id="celular" name="celular" required>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+    <!-- Location Section with Mission -->
+    <section id="location">
+        <div class="container">
+            <h2>Nuestra Misión</h2>
+            <p>La misión de nuestra empresa inmobiliaria Bienes Raices MolinaSRL es proporcionar soluciones integrales en el ámbito inmobiliario, ofreciendo servicios de alta calidad que satisfagan las necesidades y expectativas de sus clientes, fomentando el desarrollo urbano sostenible y contribuyendo al bienestar de la comunidad. La empresa se compromete a la excelencia, la transparencia y la innovación en todas sus operaciones.</p>
+            <h2>Ubicaciones de San Miguel</h2>
+            <div class="locations-grid">
+                <div class="location">
+                    <h3>San Miguel 3</h3>
+                    <a href="https://goo.gl/maps/DVyYM4ou26BRczC88" target="_blank">Ver en Google Maps</a>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3799.064638971689!2d-63.05240392482573!3d-17.788658983168656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQ3JzE5LjIiUyA2M8KwMDInNTkuNCJX!5e0!3m2!1ses-419!2sbo!4v1737752930205!5m2!1ses-419!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <h3>San Miguel 4</h3>
+                    <a href="https://goo.gl/maps/DVyYM4ou26BRczC88" target="_blank">Ver en Google Maps</a>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3798.961360445612!2d-63.048277999999996!3d-17.793513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQ3JzM2LjciUyA2M8KwMDInNTMuOCJX!5e0!3m2!1ses-419!2sbo!4v1737754533706!5m2!1ses-419!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- Sección Bienes Raíces y Servicios MolinaSRL -->
+<section id="certificates">
+    <div class="container">
+        <h2>Bienes Raíces y Servicios MolinaSRL</h2>
+        <p>Siempre brindando confiabilidad y credibilidad a nuestros clientes</p>
+        <div class="certificates-grid">
+            <div class="certificate">
+                <img src="aea.jpg" alt="Licencia de Funcionamiento">
+                <p>Licencia de Funcionamiento</p>
+            </div>
+            <div class="certificate">
+                <img src="yeeye.jpg" alt="Autorización de Publicidad">
+                <p>Autorización de Publicidad</p>
+            </div>
+            <div class="certificate">
+                <img src="oeo.jpg" alt="Tercer Certificado">
+                <p>Regimen General</p>
+            </div>
+        </div>
+    </div>
+</section>
+                    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MolinaSRL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

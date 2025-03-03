@@ -1,394 +1,584 @@
+/* Estilos CSS para la página profesional */
+
+/* General */
 body {
+    margin: 0;
     font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+    text-align: center; /* Centra todo el texto */
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4fcec7;
-    color: white;
-    padding: 10px 20px;
-    position: relative; /* Para evitar problemas con `searchResults` */
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-#searchBar {
-    height: 30px;
-    width: 80%; /* Ajusta el ancho */
-    max-width: 300px; /* Evita que sea demasiado grande */
-    border: 1px solid #ccc;
-    padding: 5px;
-    border-radius: 5px;
-}
-.search-container {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-}
-.carousel {
-    position: relative;
+.container {
     width: 100%;
     max-width: 1200px;
-    height: 300px; /* Asegura que el carrusel tenga un tamaño fijo */
-    margin: 20px auto;
-    overflow: hidden;
-    border-radius: 10px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-.carousel img {
+/* Header */
+header {
+    background: #094d1a;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
     width: 100%;
-    height: 100%; /* Ajustar al tamaño del carrusel */
-    object-fit: fill; /* Ajusta la imagen sin deformarla */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra horizontalmente */
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 15px;
+}
+
+header .logo {
+    flex: 1;
+}
+
+header .logo img {
+    height: 70px;
+}
+
+header nav {
+    flex-grow: 2;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* Centra las opciones del menú */
+}
+
+header nav ul li {
+    text-align: center;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #db6606;
+}
+
+/* Hero Section */
+#hero {
+    background: url('ayeyeye.png') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+#hero::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.carousel img.active {
-    opacity: 1;
-}
-.whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 60px;
-    height: 60px;
-    z-index: 1000;
-}
-
-.whatsapp-button img {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    box-shadow: 0 4px 6px #ffffff4d;
-    transition: transform 0.2s;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
-.whatsapp-button img:hover {
-    transform: scale(1.1);
-}
-
-button.prev, button.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    padding: 10px;
-    border-radius: 5px;
+#hero .hero-content {
+    position: relative;
     z-index: 2;
 }
 
-button.prev {
-    left: 10px;
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
 }
 
-button.next {
-    right: 10px;
+#hero p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
-button:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-#searchResults {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    border: 1px solid #ccc;
-    width: 100%;
-    max-height: 300px;
-    overflow-y: auto;
-    z-index: 10;
-    box-shadow: 0px 4px 6px rgba(245, 211, 211, 0.1);
-    display: none;
-    padding: 10px;
+#hero .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0871fc;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
     border-radius: 5px;
+    transition: background 0.3s;
 }
 
-.search-result {
+#hero .btn:hover {
+    background: #e67e22;
+}
+
+/* About Section */
+#about {
+    padding: 60px 0;
+    background: #afffba;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Logo Section */
+#logosi .social-icons {
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
-}
-.result-image {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    margin-right: 10px;
-    border-radius: 5px;
-}
-.result-info {
-    display: flex;
-    flex-direction: column;
-}
-.result-name {
-    font-size: 14px;
-    font-weight: bold;
+    gap: 60px;
 }
 
-.search-result:hover {
-    background-color: #f8f8f8;
+#logosi .social-icons a {
+    font-size: 70px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-.nav-buttons .button {
-    background-color: #ffffff;
-    color: #004aad;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
+#logosi .social-icons a:hover {
+    color: #bdec66;
 }
-.ad-image img {
+/* Sección Nuestra Página en Canvas */
+#canvas-page {
+    padding: 60px 0;
+    background: #fff;
+    text-align: center;
+}
+
+#canvas-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#canvas-page h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#canvas-page iframe {
     width: 100%;
-    height: auto;
-    max-height: 400px; /* Ajusta esta medida según tus necesidades */
-    display: block;
-    margin: 0;
-}
-.nav-buttons .button:hover {
-    background-color: #ffffff;
-}
-
-.category-nav {
-    display: flex;
-    justify-content: center;
-    background-color: #fafafa;
-    padding: 5px 0; /* Reduce el padding */
-    margin: 0;
-}
-
-.category-btn {
-    background: none;
+    height: 500px;
     border: none;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0 15px;
-    cursor: pointer;
-    color: #1b4fb1;
-}
-
-.category-btn:hover {
-    text-decoration: underline;
-}
-
-.banner {
-    text-align: center;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #ADD8E6, #1d5069);
-    color: white;
-}
-
-.product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-}
-
-.product-item {
-    background: white;
-    padding: 15px;
-    margin: 10px;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Services Section */
+#services {
+    padding: 60px 0;
     text-align: center;
 }
 
-.product-item img {
-    max-width: 100px;
-    height: auto;
+#services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center; /* Centra la cuadrícula */
+}
+
+.service {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.service h3 {
+    font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
-.button {
-    background-color: #004aad;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
+.service p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.service:hover {
+    transform: scale(1.05);
+}
+
+/* Projects Section */
+#projects {
+    padding: 60px 0;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+#projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center; /* Centra la cuadrícula */
+}
+
+.project {
+    background: #fff;
+    padding: 20px;
     border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.project img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.project h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.project p {
+    font-size: 2.2rem;
+    color: #555;
+}
+
+.project:hover {
+    transform: scale(1.05);
+}
+
+/* Logros Section */
+#logros {
+    background: #faf89a;
+    padding: 60px 0;
+}
+
+#logros .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.logros-content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center; /* Centra el contenido */
+}
+
+.logros-texto {
+    flex: 1;
+    text-align: center;
+    padding-right: 20px;
+}
+
+.logros-texto h2 {
+    color: #013f10;
+    font-size: 2.5rem;
+}
+
+.logros-texto p {
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.logros-imagen {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.logros-imagen img {
+    width: 100%;
+    max-width: 400px;
+}
+.clientes-satisfechos {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    text-align: center;
+}
+
+.clientes-satisfechos h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.cliente {
+    border-top: 1px solid #eaeaea;
+    margin: 20px 0;
+    padding-top: 20px;
+}
+
+.cliente img {
+    height: 450px;
+    width: 450px;
+    object-fit: cover;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.cliente p {
+    color: #000000;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.cliente:first-child {
+    border-top: none;
+}
+/* Sección Bienes Raíces y Servicios MolinaSRL */
+#certificates {
+    padding: 60px 0;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+#certificates .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+#pano { width: 100vw; height: 100vh; }
+#certificates h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#certificates p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #000000;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.certificate {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.certificate img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.certificate p {
+    font-size: 1rem;
+    color: #555;
+}
+/* Galería de Imágenes y Videos */
+#media-galeria {
+    padding: 60px 0;
+    background: #f7f7f7;
+    text-align: center;
+}
+
+#media-galeria .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#media-galeria h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center; /* Centra la cuadrícula */
+}
+
+.media-grid img,
+.media-grid video {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.media-grid img:hover,
+.media-grid video:hover {
+    transform: scale(1.05);
+}
+#location .map iframe {
+    border-radius: 10px;
+}
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center; /* Centra la cuadrícula */
+}
+
+.location {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.location h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.location a {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #0871fc;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.location a:hover {
+    color: #e67e22;
+}
+#contacto {
+    padding: 40px 20px;
+    background: #fff;
+    text-align: center;
+}
+
+#contacto h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #094d1a;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
-.button:hover {
-    background-color: #003a8c;
-}
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 300px;
-}
-
-.modal-content input {
+.form-group input {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    font-size: 1rem;
 }
-#passwordModal {
-    display: none; /* Asegura que el modal esté oculto al inicio */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    z-index: 1000;
-}
-.button {
-    background-color: #004aad;
-    color: white;
+
+button {
+    background: #094d1a;
+    color: #fff;
+    padding: 10px 20px;
     border: none;
-    padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #e67e22;
+}
+/* Contact Section */
+#contact {
+    padding: 60px 0;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-.back-button {
-    background-color: #f82222;
-    margin-left: 10px;
-}
-
-.about, .location, .thanks {
-    background: white;
-    padding: 40px 20px;
-    margin: 20px auto;
-    text-align: center;
-    max-width: 800px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.about h2, .location h2, .thanks h2 {
-    color: #004aad;
-}
-.location-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.location iframe {
-    width: 90%;
-    height: 300px;
-    max-width: 600px;
+button {
+    padding: 10px 20px;
+    background: #f39c12;
+    color: #fff;
     border: none;
-}
-
-/* 📌 Ajustar el header en móviles */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .search-container {
-        width: 90%;
-        max-width: 100%;
-        margin-top: 10px;
-    }
-
-    #searchBar {
-        width: 100%;
-    }
-}
-
-/* 📌 Hacer que el carrusel sea más pequeño en celulares */
-@media (max-width: 768px) {
-    .carousel {
-        height: 200px; /* Reduce la altura del carrusel */
-    }
-}
-
-/* 📌 Asegurar que las imágenes del carrusel no se deformen */
-.carousel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Esto evita la distorsión */
-}
-
-/* 📌 Ajustar los botones del carrusel en móviles */
-@media (max-width: 768px) {
-    button.prev, button.next {
-        font-size: 18px;
-        padding: 5px;
-    }
-}
-
-/* 📌 Hacer que los botones de categorías no se vean tan grandes en móviles */
-@media (max-width: 600px) {
-    .category-nav {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .category-btn {
-        font-size: 14px;
-        margin: 5px;
-    }
-}
-
-/* 📌 Ajustar la lista de productos en móviles */
-@media (max-width: 768px) {
-    .product-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .product-item {
-        width: 90%;
-    }
-
-    .product-item img {
-        max-width: 150px;
-    }
-}
-
-/* 📌 Ajustar los modals para que se vean bien en celulares */
-@media (max-width: 600px) {
-    .modal-content {
-        width: 90%;
-    }
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
